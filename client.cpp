@@ -1,7 +1,7 @@
 #include <iostream>
 #include "client.h"
 
-Client(std::string id, std::string prenom, std::string nom, std::vector<Produit> achat){
+Client::Client(std::string id, std::string prenom, std::string nom, std::vector<Produit> achat){
 	_id=id;
 	_prenom=prenom;
 	_nom=nom;
