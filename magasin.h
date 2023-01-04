@@ -9,6 +9,10 @@ class Magasin
 {
 public:
 	Magasin(std::vector<Produit> produits, std::vector<Client> clients, std::vector<Commande> commandes);
+	void ajout_produit(Produit P);
+	void afficher_produits();
+	void afficher_produits(std::string nom);
+	void update_produit(std::string nom, int n); 
 
 private:
 	std::vector<Produit> _produits;
