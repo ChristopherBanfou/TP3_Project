@@ -60,6 +60,7 @@ int main(int argc, char const *argv[])
 	M.afficher_clients();
 	M.afficher_clients("Ginhac");
 	M.afficher_clients("099");	
+	std::cout << C2;
 
 	return 0;
 }

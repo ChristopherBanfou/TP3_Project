@@ -63,10 +63,9 @@ std::ostream& operator << (std::ostream& os, const Client& C){
 	to_display=to_display + "Identifiant : " + C.get_id() + "\n";
 	to_display=to_display + "Noms et prenoms : " + C.get_nom() + " " + C.get_prenom() + "\n";
 	to_display= to_display + "Produits achetes/choisis : \n"; 
-	for (auto i: C.get_achat())
-	{
-	to_display = to_display  + "Identifiant : " + i.get_id() + "\n" + "Titre : " + i.get_titre() + "\n" + "Description : " + i.get_description() + "\n" + "Quantite en magasin : " + std::to_string(i.get_quantite()) + "\n" "Prix_unitaire : " + std::to_string(i.get_prix_unitaire()) + "$" + "\n"; 
-	os << to_display<<std::endl;
-   }
+	for (auto i: C.get_achat()){
+	to_display = to_display  + "Identifiant : " + i.get_id() + "\n" + "Titre : " + i.get_titre() + "\n" + "Description : " + i.get_description() + "\n" + "Quantite en magasin : " + std::to_string(i.get_quantite()) + "\n" "Prix_unitaire : " + std::to_string(i.get_prix_unitaire()) + "$" + "\n";
+   	}
+   os << to_display<<std::endl;
 	return os;
 }
