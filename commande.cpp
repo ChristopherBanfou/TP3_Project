@@ -23,7 +23,12 @@ std::ostream& operator << (std::ostream& os, const Commande& C){
 	{
 		to_display = to_display + std::to_string(i.get_quantite_client()) + " " + i.get_titre() + ", identifiant: " + i.get_id() + "\n"; 
 	}
-	
+	if (C.get_status() == true)
+	{
+		to_display = to_display + "statut : Livrée ";
+	}else{
+		to_display = to_display + "statut : pas encore livrée ";
+	}
 	os << to_display << std::endl;
 	return os;
 }
