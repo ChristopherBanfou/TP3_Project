@@ -57,21 +57,22 @@ int main(int argc, char const *argv[])
 	M.update_client(C4);
 	M.update_client(C5);
 
-	bool status1;
-	bool status2;
-	bool status3;
+	bool status1=false;
+	bool status2=false;
+	bool status3=false;
 
 	Commande Com1(C2, client2, status1);
 	Commande Com2(C2, client2, status2);
 	Commande Com3(C1, client1, status3);
 
 	M.valider_commande(Com1);
+	M.valider_commande(Com2);
+	M.valider_commande(Com3);
 
+ 	M.update_commande_status(Com1);
+
+	std::cout<<Com1.get_status()<<std::endl;
 	M.afficher_commandes();
-
-	M.update_commande_status(Com2);	
-
-	M.afficher_commandes(C2);
 
 	return 0;
 }
