@@ -18,3 +18,4 @@ private:
 	std::vector<Produit> _produits;
 	bool _status;
 };
+std::ostream& operator << (std::ostream& os, const Commande& C);
