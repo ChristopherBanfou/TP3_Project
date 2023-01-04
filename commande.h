@@ -8,12 +8,13 @@ class Commande
 {
 public:
 	Commande(Client client, std::vector<Produit> produits, bool _status);
-	Client get_client();
-	std::vector<Produit> get_produits();
-	bool get_status();
+	Client get_client() const;
+	std::vector<Produit> get_produits() const;
+	bool get_status() const;
 
 private:	
 	Client _client;
 	std::vector<Produit> _produits;
 	bool _status;
 };
+std::ostream& operator << (std::ostream& os, const Commande& C);
