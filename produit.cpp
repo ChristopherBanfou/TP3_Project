@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include "produit.h"
 
@@ -42,7 +41,7 @@ std::ostream& operator << (std::ostream& os, const Produit& P){
 	to_display=to_display + "Identifiant : " + P.get_id() + "\n";
 	to_display=to_display + "Titre : " + P.get_titre() + "\n";
 	to_display= to_display + "Description : " + P.get_description() + "\n"; 
-	to_display= to_display + "Quantite : " + P.get_quantite() + "\n";
-	to_display= to_display + "Prix_unitaire : " + P.get_prix_unitaire() + "\n" ; 
+	to_display= to_display + "Quantite : " + std::to_string(P.get_quantite()) + "\n";
+	to_display= to_display + "Prix_unitaire : " + std::to_string(P.get_prix_unitaire()) + "\n" ; 
 	os<<to_display<<std::endl;
 }
