@@ -41,3 +41,10 @@ std::ostream& operator << (std::ostream& os, const Commande& C){
 	return os;
 }
 
+bool Commande::operator == (const Commande& C){
+	if (C.get_client() == _client && C.get_produits() == _produits && C.get_status() == _status)
+	{
+		return true;
+	}
+	return false;
+}
