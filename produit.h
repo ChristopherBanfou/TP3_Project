@@ -1,4 +1,5 @@
 #pragma once
+#pragma once 
 #include <iostream>
 
 class Produit
@@ -12,6 +13,9 @@ public:
 	int get_quantite() const;
 	float get_prix_unitaire() const;
 	void update_quantite( int q);
+	bool operator == (const Produit& P) const;
+
+
 private:
 	std::string _id;
 	std::string _titre;

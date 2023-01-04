@@ -12,7 +12,9 @@ public:
 	std::string get_prenom() const;
 	std::string get_nom() const;
 	std::vector<Produit> get_achat() const;
-	void update_achat(Produit P);
+	void add_achat(Produit P);
+	void drop_achat();
+	void delete_achat(Produit P);
 private:
 	std::string _id;
 	std::string _prenom;
@@ -20,3 +22,4 @@ private:
 	std::vector<Produit> _achat;
 	
 };
+std::ostream& operator << (std::ostream& os, const Client& C);

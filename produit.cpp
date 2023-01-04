@@ -37,11 +37,22 @@ void Produit::update_quantite(int q){
 }
 
 std::ostream& operator << (std::ostream& os, const Produit& P){
-	std::string to_display="Informations du produit : \n ";
+	std::string to_display;
 	to_display=to_display + "Identifiant : " + P.get_id() + "\n";
 	to_display=to_display + "Titre : " + P.get_titre() + "\n";
 	to_display= to_display + "Description : " + P.get_description() + "\n"; 
-	to_display= to_display + "Quantite : " + std::to_string(P.get_quantite()) + "\n";
-	to_display= to_display + "Prix_unitaire : " + std::to_string(P.get_prix_unitaire()) + "\n" ; 
+	to_display= to_display + "Quantite en magasin : " + std::to_string(P.get_quantite()) + "\n";
+	to_display= to_display + "Prix_unitaire : " + std::to_string(P.get_prix_unitaire()) + "$" ; 
 	os<<to_display<<std::endl;
+	return os;
 }
+
+bool Produit::operator == (const Produit& P) const {
+ if ( _id==P.get_id() && _titre==P.get_titre() )
+ {
+ return true;
+ }
+ else {
+ 	return false;
+ }
+ }
