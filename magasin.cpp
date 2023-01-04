@@ -39,6 +39,7 @@ void Magasin::afficher_produits(std::string nom){
 
 }
 
+
 void Magasin::update_produit(std::string nom, int n){
 	for (int i = 0; i < _produits.size(); i++)
 	{
@@ -49,6 +50,7 @@ void Magasin::update_produit(std::string nom, int n){
 	}
 
 }
+
 
 void Magasin::update_client(Client& C){
 	_clients.push_back(C);
@@ -64,6 +66,7 @@ void Magasin::afficher_clients(){
 	}
 }
 
+
 void Magasin::afficher_clients(std::string nom_ou_id){
 	std::cout<< "Le client recherche est : ";
 	for (int i = 0; i < _clients.size(); i++)
@@ -75,14 +78,56 @@ void Magasin::afficher_clients(std::string nom_ou_id){
 	}
 }
 
+
 void Magasin::ajout_achat(Produit& P, Client& C, int quantite){
 	C.add_achat(P, quantite);
 }
+
+
 void Magasin::supprimer_achat(Produit& P, Client& C){
 	C.delete_achat(P);
 }
 
+
 void Magasin::modifier_achat(Produit& P, Client& C, int quantite){
 	P.update_quantite_client(quantite);
+}
+
+
+void Magasin::valider_commande(Commande& Com){
+	_commandes.push_back(Com);
+	for (int i = 0; i < Com.get_produits().size(); i++)
+	{
+		Com.get_produits().at(i).update_quantite( Com.get_produits().at(i).get_quantite() - Com.get_produits().at(i).get_quantite_client()  );
+	}
+		std::cout<< "la Commande du client ci-dessous a ete valide et les produits ont ete retires du magasin : "<<std::endl;
+
+		std::cout<< Com.get_client() <<std::endl;
+
+}
+
+
+void Magasin::update_commande_status(Commande& Com){
+	Com.update_status();
+}
+
+
+void Magasin::afficher_commandes(){
+	for (int i = 0; i < _commandes.size(); i++)
+	{
+		std::cout<<_commandes.at(i)<<std::endl;
+	}
+}
+
+
+void Magasin::afficher_commandes(Client& C){
+	for (int i = 0; i < _commandes.size(); i++)
+	{
+		if (_commandes.at(i).get_client().get_id()==C.get_id())
+		{
+			std::cout<<_commandes.at(i)<<std::endl;
+		}
+	}
+
 }
 

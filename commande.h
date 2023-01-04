@@ -11,6 +11,7 @@ public:
 	Client get_client();
 	std::vector<Produit> get_produits();
 	bool get_status();
+	void update_status();
 
 private:	
 	Client _client;

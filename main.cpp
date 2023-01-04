@@ -59,7 +59,12 @@ int main(int argc, char const *argv[])
 
 	M.afficher_clients();
 	M.afficher_clients("Ginhac");
-	M.afficher_clients("099");	
+	M.afficher_clients("099");
+
+	bool status;
+	Commande Com(C1, client1, status);
+
+	M.valider_commande(Com);	
 
 	return 0;
 }
