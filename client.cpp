@@ -58,14 +58,15 @@ void Client::update_quantite_achat(Produit& P, int q){
 
 
 std::ostream& operator << (std::ostream& os, const Client& C){
-	std::string to_display;
+	std::string to_display ="";
 	to_display=to_display + "Informations du client : " + "\n";
 	to_display=to_display + "Identifiant : " + C.get_id() + "\n";
 	to_display=to_display + "Noms et prenoms : " + C.get_nom() + " " + C.get_prenom() + "\n";
-	to_display= to_display + "Produits achetes/choisis : "; 
-	for (int i = 0; i < C.get_achat().size(); i++)
+	to_display= to_display + "Produits achetes/choisis : \n"; 
+	for (auto i: C.get_achat())
 	{
-		os<<to_display<<C.get_achat().at(i)<<std::endl;
-	}
+	to_display = to_display  + "Identifiant : " + i.get_id() + "\n" + "Titre : " + i.get_titre() + "\n" + "Description : " + i.get_description() + "\n" + "Quantite en magasin : " + std::to_string(i.get_quantite()) + "\n" "Prix_unitaire : " + std::to_string(i.get_prix_unitaire()) + "$" + "\n"; 
+	os << to_display<<std::endl;
+   }
 	return os;
 }
