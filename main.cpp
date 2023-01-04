@@ -57,14 +57,21 @@ int main(int argc, char const *argv[])
 	M.update_client(C4);
 	M.update_client(C5);
 
-	M.afficher_clients();
-	M.afficher_clients("Ginhac");
-	M.afficher_clients("099");
+	bool status1;
+	bool status2;
+	bool status3;
 
-	bool status;
-	Commande Com(C1, client1, status);
+	Commande Com1(C2, client2, status1);
+	Commande Com2(C2, client2, status2);
+	Commande Com3(C1, client1, status3);
 
-	M.valider_commande(Com);	
+	M.valider_commande(Com1);
+
+	M.afficher_commandes();
+
+	M.update_commande_status(Com2);	
+
+	M.afficher_commandes(C2);
 
 	return 0;
 }

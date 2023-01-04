@@ -113,6 +113,7 @@ void Magasin::update_commande_status(Commande& Com){
 
 
 void Magasin::afficher_commandes(){
+	std::cout<<"Informations sur la Commande :"<<std::endl;
 	for (int i = 0; i < _commandes.size(); i++)
 	{
 		std::cout<<_commandes.at(i)<<std::endl;
@@ -121,6 +122,7 @@ void Magasin::afficher_commandes(){
 
 
 void Magasin::afficher_commandes(Client& C){
+	std::cout<<"Informations sur la Commande :"<<std::endl;
 	for (int i = 0; i < _commandes.size(); i++)
 	{
 		if (_commandes.at(i).get_client().get_id()==C.get_id())
