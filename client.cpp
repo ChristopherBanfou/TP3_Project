@@ -56,6 +56,14 @@ void Client::update_quantite_achat(Produit& P, int q){
 	}
 }
 
+bool Client::operator == (Client& c){
+	if (c.get_achat() == _achat && c.get_id() == _id && c.get_nom() == _nom && c.get_prenom() == _prenom)
+	{
+		return true;
+	}
+	return false;
+	
+}
 
 std::ostream& operator << (std::ostream& os, const Client& C){
 	std::string to_display ="";

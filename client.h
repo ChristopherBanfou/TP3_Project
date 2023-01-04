@@ -16,6 +16,7 @@ public:
 	void drop_achat();
 	void delete_achat(Produit& P);
 	void update_quantite_achat(Produit& P, int q);
+	bool operator == (Client& c) ;
 private:
 	std::string _id;
 	std::string _prenom;

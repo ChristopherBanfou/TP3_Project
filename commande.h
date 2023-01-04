@@ -11,6 +11,7 @@ public:
 	Client get_client() const;
 	std::vector<Produit> get_produits() const;
 	bool get_status() const;
+	bool operator == (const Commande& C);
 
 private:	
 	Client _client;

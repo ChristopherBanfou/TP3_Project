@@ -32,3 +32,10 @@ std::ostream& operator << (std::ostream& os, const Commande& C){
 	os << to_display << std::endl;
 	return os;
 }
+bool Commande::operator == (const Commande& C){
+	if (C.get_client() == _client && C.get_produits() == _produits && C.get_status() == _status)
+	{
+		return true;
+	}
+	return false;
+}
