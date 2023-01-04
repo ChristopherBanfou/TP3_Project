@@ -47,15 +47,19 @@ int main(int argc, char const *argv[])
 	Client C4("111", "Commutation", "Nader", client4);
 	Client C5("099", "Sami", "Khedira", client5);
 
-	C2.add_achat(P1);
-	C2.add_achat(P2);
-	C2.add_achat(P3);
+	C2.add_achat(P1, 7);
+	C2.add_achat(P2, 9);
+	C2.add_achat(P3, 8);
 
-	std::cout<<C2;
+	M.update_client(C1);
+	M.update_client(C2);
+	M.update_client(C3);
+	M.update_client(C4);
+	M.update_client(C5);
 
-
-
-
+	M.afficher_clients();
+	M.afficher_clients("Ginhac");
+	M.afficher_clients("099");	
 
 	return 0;
 }

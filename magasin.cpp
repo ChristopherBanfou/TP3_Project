@@ -7,7 +7,7 @@ Magasin::Magasin(std::vector<Produit> produits, std::vector<Client> clients, std
 			_commandes=commandes;
 }
 
-void Magasin::ajout_produit(Produit P){
+void Magasin::ajout_produit(Produit& P){
 	_produits.push_back(P);
 }
 
@@ -20,6 +20,8 @@ void Magasin::afficher_produits(){
 		a++;
 	}
 }
+
+
 void Magasin::afficher_produits(std::string nom){
 	int a=1;
 	std::cout<< "Les produits du nom recherche dans le magsin sont : " <<std::endl;
@@ -44,3 +46,40 @@ void Magasin::update_produit(std::string nom, int n){
 	}
 
 }
+
+void Magasin::update_client(Client& C){
+	_clients.push_back(C);
+} 
+
+void Magasin::afficher_clients(){
+	int a=1;
+	std::cout<< "Les clients du magasin sont : " <<std::endl;
+	for (int i = 0; i < _clients.size(); i++)
+	{
+		std::cout<<"Client "<<a<<" :"<<_clients.at(i).get_prenom()<<" "<<_clients.at(i).get_nom()<<std::endl;
+		a++;
+	}
+}
+
+void Magasin::afficher_clients(std::string nom_ou_id){
+	std::cout<< "Le client recherche est : ";
+	for (int i = 0; i < _clients.size(); i++)
+	{
+		if (_clients.at(i).get_nom()==nom_ou_id || _clients.at(i).get_id()==nom_ou_id)
+		{
+			std::cout<<_clients.at(i).get_prenom()<<" "<<_clients.at(i).get_nom()<<std::endl;
+		}
+	}
+}
+
+void Magasin::ajout_achat(Produit& P, Client& C, int quantite){
+	C.add_achat(P, quantite);
+}
+void Magasin::supprimer_achat(Produit& P, Client& C){
+	C.delete_achat(P);
+}
+
+void Magasin::modifier_achat(Produit& P, Client& C, int quantite){
+	P.update_quantite_client(quantite);
+}
+

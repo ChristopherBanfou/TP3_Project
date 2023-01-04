@@ -12,9 +12,10 @@ public:
 	std::string get_prenom() const;
 	std::string get_nom() const;
 	std::vector<Produit> get_achat() const;
-	void add_achat(Produit P);
+	void add_achat(Produit& P, int quantite);
 	void drop_achat();
-	void delete_achat(Produit P);
+	void delete_achat(Produit& P);
+	void update_quantite_achat(Produit& P, int q);
 private:
 	std::string _id;
 	std::string _prenom;

@@ -7,7 +7,7 @@ Produit::Produit(std::string id, std::string titre, std::string description, int
 	 _description=description;
 	_quantite=quantite;
 	_prix_unitaire=prix_unitaire; 
-
+	_quantite_client=0;
 }
 Produit::Produit(){
 	_id="null";
@@ -15,7 +15,7 @@ Produit::Produit(){
 	 _description="null";
 	_quantite=0;
 	_prix_unitaire=0; 
-}
+}	
 
 std::string Produit::get_id() const{
 	return _id;
@@ -32,8 +32,15 @@ int Produit::get_quantite() const{
 float Produit::get_prix_unitaire() const{
 	return _prix_unitaire;
 }
+int Produit::get_quantite_client() const{
+	return _quantite_client;
+}
 void Produit::update_quantite(int q){
 	_quantite=q;
+}
+void Produit::update_quantite_client( int q){
+	_quantite_client=q;
+
 }
 
 std::ostream& operator << (std::ostream& os, const Produit& P){
@@ -42,6 +49,7 @@ std::ostream& operator << (std::ostream& os, const Produit& P){
 	to_display=to_display + "Titre : " + P.get_titre() + "\n";
 	to_display= to_display + "Description : " + P.get_description() + "\n"; 
 	to_display= to_display + "Quantite en magasin : " + std::to_string(P.get_quantite()) + "\n";
+	to_display= to_display + "Quantite desire par le client : " + std::to_string(P.get_quantite_client()) + "\n";
 	to_display= to_display + "Prix_unitaire : " + std::to_string(P.get_prix_unitaire()) + "$" ; 
 	os<<to_display<<std::endl;
 	return os;

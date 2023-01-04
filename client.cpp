@@ -26,9 +26,9 @@ std::string Client::get_nom() const{
 std::vector<Produit> Client::get_achat() const{
 	return _achat;
 }
-void Client::add_achat(Produit P){
+void Client::add_achat(Produit& P, int quantite){
 	_achat.push_back(P);
-	P.update_quantite(P.get_quantite()-1);
+	P.update_quantite_client(quantite);
 }
 void Client::drop_achat(){
 	int n;
@@ -36,8 +36,7 @@ void Client::drop_achat(){
 	_achat.erase( _achat.begin() , _achat.begin()+n );
 }
 
-
-void Client::delete_achat(Produit P){
+void Client::delete_achat(Produit& P){
 	for (int i = 0; i < _achat.size(); i++)
 	{
 		if (_achat.at(i)==P)
@@ -47,6 +46,17 @@ void Client::delete_achat(Produit P){
 	}
 }
 
+void Client::update_quantite_achat(Produit& P, int q){
+	for (int i = 0; i < _achat.size(); i++)
+	{
+		if ( _achat.at(i)==P )
+		{
+			P.update_quantite_client(q);
+		}
+	}
+}
+
+
 std::ostream& operator << (std::ostream& os, const Client& C){
 	std::string to_display;
 	to_display=to_display + "Informations du client : " + "\n";
@@ -55,7 +65,7 @@ std::ostream& operator << (std::ostream& os, const Client& C){
 	to_display= to_display + "Produits achetes/choisis : "; 
 	for (int i = 0; i < C.get_achat().size(); i++)
 	{
-		to_display=to_display+	
+		os<<to_display<<C.get_achat().at(i)<<std::endl;
 	}
 	return os;
 }
