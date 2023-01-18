@@ -35,6 +35,9 @@ int main(int argc, char const *argv[])
 	M.ajout_produit(P9);
 	M.ajout_produit(P10);
 
+	M.update_produit("Maillot CR7", 54);
+	M.afficher_produits();
+
 	std::vector<Produit> client1;
 	std::vector<Produit> client2;
 	std::vector<Produit> client3;
@@ -65,13 +68,16 @@ int main(int argc, char const *argv[])
 	Commande Com2(C2, client2, status2);
 	Commande Com3(C1, client1, status3);
 
+	M.ajout_achat(P5, C5, 3);
+	M.supprimer_achat(P2, C2);
+	M.modifier_achat(P3, C2, 14);
+
 	M.valider_commande(Com1);
 	M.valider_commande(Com2);
 	M.valider_commande(Com3);
 
  	M.update_commande_status(Com1);
 
-	std::cout<<Com1.get_status()<<std::endl;
 	M.afficher_commandes();
 
 	return 0;
