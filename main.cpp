@@ -38,21 +38,17 @@ int main(int argc, char const *argv[])
 	M.update_produit("Maillot CR7", 54);
 	M.afficher_produits();
 
-	std::vector<Produit> client1;
-	std::vector<Produit> client2;
-	std::vector<Produit> client3;
-	std::vector<Produit> client4;
-	std::vector<Produit> client5;
-
-	Client C1("007", "Georgina", "Rodriguez", client1);
-	Client C2("034", "Daniel", "Ginhac", client2);
-	Client C3("222", "Morfu", "Saveiro", client3);
-	Client C4("111", "Commutation", "Nader", client4);
-	Client C5("099", "Sami", "Khedira", client5);
+	Client C1("007", "Georgina", "Rodriguez");
+	Client C2("034", "Daniel", "Ginhac");
+	Client C3("222", "Morfu", "Saveiro");
+	Client C4("111", "Commutation", "Nader");
+	Client C5("099", "Sami", "Khedira");
 
 	C2.add_achat(P1, 7);
 	C2.add_achat(P2, 9);
 	C2.add_achat(P3, 8);
+	C1.add_achat(P10, 1);
+	C4.add_achat(P8, 2);
 
 	M.update_client(C1);
 	M.update_client(C2);
@@ -60,25 +56,26 @@ int main(int argc, char const *argv[])
 	M.update_client(C4);
 	M.update_client(C5);
 
-	bool status1=false;
-	bool status2=false;
-	bool status3=false;
 
-	Commande Com1(C2, client2, status1);
-	Commande Com2(C2, client2, status2);
-	Commande Com3(C1, client1, status3);
+	Commande Com1(C2);
+	Commande Com2(C2);
+	Commande Com3(C1);
+	Commande Com4(C4);
 
 	M.ajout_achat(P5, C5, 3);
 	M.supprimer_achat(P2, C2);
 	M.modifier_achat(P3, C2, 14);
 
+
+
+ 	M.update_commande_status(Com1);
 	M.valider_commande(Com1);
 	M.valider_commande(Com2);
 	M.valider_commande(Com3);
-
- 	M.update_commande_status(Com1);
+	M.valider_commande(Com4);
 
 	M.afficher_commandes();
+
 
 	return 0;
 }

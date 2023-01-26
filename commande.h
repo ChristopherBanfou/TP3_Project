@@ -7,7 +7,7 @@
 class Commande
 {
 public:
-	Commande(Client client, std::vector<Produit> produits, bool _status);
+	Commande(Client client);
 	Client get_client() const;
 	std::vector<Produit> get_produits() const;
 	bool get_status() const;

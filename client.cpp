@@ -1,11 +1,10 @@
 #include <iostream>
 #include "client.h"
 
-Client::Client(std::string id, std::string prenom, std::string nom, std::vector<Produit> achat){
+Client::Client(std::string id, std::string prenom, std::string nom){
 	_id=id;
 	_prenom=prenom;
 	_nom=nom;
-	_achat=achat;
 }
 	
 Client::Client(){
@@ -23,12 +22,12 @@ std::string Client::get_prenom() const{
 std::string Client::get_nom() const{
 	return _nom;
 }
-std::vector<Produit> Client::get_achat() const{
+std::vector<Produit> Client::get_achat() const {
 	return _achat;
 }
 void Client::add_achat(Produit& P, int quantite){
-	_achat.push_back(P);
 	P.update_quantite_client(quantite);
+	_achat.push_back(P);
 }
 void Client::drop_achat(){
 	int n;

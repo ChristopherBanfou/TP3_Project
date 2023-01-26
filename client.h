@@ -6,7 +6,7 @@
 class Client
 {
 public:
-	Client(std::string id, std::string prenom, std::string nom, std::vector<Produit> achat);
+	Client(std::string id, std::string prenom, std::string nom);
 	Client();
 	std::string get_id() const;
 	std::string get_prenom() const;

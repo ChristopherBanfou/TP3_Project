@@ -94,14 +94,14 @@ void Magasin::modifier_achat(Produit& P, Client& C, int quantite){
 
 void Magasin::valider_commande(Commande& Com){
 
-	for (int i = 0; i < Com.get_produits().size(); i++)
-	{
-		Com.get_produits().at(i).update_quantite( Com.get_produits().at(i).get_quantite() - Com.get_produits().at(i).get_quantite_client()  );
-	}
 
 	_commandes.push_back(Com);
 	std::cout<< "la Commande du client ci-dessous a ete valide et les produits ont ete retires du magasin : "<<std::endl;
 	std::cout<< Com.get_client() <<std::endl;
+		for (int i = 0; i < Com.get_produits().size(); i++)
+	{
+		Com.get_produits().at(i).update_quantite( Com.get_produits().at(i).get_quantite() - Com.get_produits().at(i).get_quantite_client()  );
+	}
 
 }
 
