@@ -49,6 +49,7 @@ int main(int argc, char const *argv[])
 	C2.add_achat(P3, 8);
 	C1.add_achat(P10, 1);
 	C4.add_achat(P8, 2);
+	C3.add_achat(P8, 2);
 
 	M.update_client(C1);
 	M.update_client(C2);
@@ -57,7 +58,7 @@ int main(int argc, char const *argv[])
 	M.update_client(C5);
 
 
-	Commande Com1(C2);
+	Commande Com1(C3);
 	Commande Com2(C2);
 	Commande Com3(C1);
 	Commande Com4(C4);
@@ -68,12 +69,13 @@ int main(int argc, char const *argv[])
 
 
 
- 	M.update_commande_status(Com1);
+ 	
 	M.valider_commande(Com1);
 	M.valider_commande(Com2);
 	M.valider_commande(Com3);
 	M.valider_commande(Com4);
-
+	M.update_commande_status(Com1);
+	std::cout << "\n------------------Commandes du magasin validées-------------------------\n";
 	M.afficher_commandes();
 
 

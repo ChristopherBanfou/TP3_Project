@@ -17,7 +17,7 @@ void Magasin::afficher_produits(){
 	std::cout<< "Les produits references dans le magsin sont : " <<std::endl;
 	for (int i = 0; i < _produits.size(); i++)
 	{
-		std::cout<<"Produit "<<a<<" "<<_produits.at(i)<<std::endl;
+		std::cout<<"Produit "<< a <<" "<<_produits.at(i)<<std::endl;
 		a++;
 	}
 }
@@ -94,14 +94,20 @@ void Magasin::modifier_achat(Produit& P, Client& C, int quantite){
 
 void Magasin::valider_commande(Commande& Com){
 
-
-	_commandes.push_back(Com);
-	std::cout<< "la Commande du client ci-dessous a ete valide et les produits ont ete retires du magasin : "<<std::endl;
-	std::cout<< Com.get_client() <<std::endl;
-		for (int i = 0; i < Com.get_produits().size(); i++)
+	for (int i = 0; i < Com.get_produits().size(); i++)
 	{
 		Com.get_produits().at(i).update_quantite( Com.get_produits().at(i).get_quantite() - Com.get_produits().at(i).get_quantite_client()  );
 	}
+
+	_commandes.push_back(Com);
+	
+	std::cout<< "la Commande du client ci-dessous a ete valide et les produits ont ete retires du magasin : "<<std::endl;
+	std::cout<< Com.get_client() <<std::endl;
+	for (int i = 0; i < Com.get_produits().size(); i++)
+	{
+		Com.get_client().delete_achat(Com.get_produits().at(i));
+	}
+
 
 }
 
@@ -118,7 +124,7 @@ void Magasin::update_commande_status(Commande& Com){
 
 
 void Magasin::afficher_commandes(){
-	std::cout<<"Informations sur la Commande :"<<std::endl;
+	std::cout<<"Informations sur les Commande :"<<std::endl;
 	for (int i = 0; i < _commandes.size(); i++)
 	{
 		std::cout<<_commandes.at(i)<<std::endl;
